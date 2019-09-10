@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class leaky {
+
+	static int bucketSize=500;
+	
+	static void bktInput(int a,int b) {
+		 if(a>bucketSize)
+		   System.out.printf("\n\t\tBucket overflow, Hence discarded");
+		  else {
+		    while(a>b){
+		    	System.out.printf("\n\t\t,%d bytes outputted",b);
+			  a-=b;
+		    }
+		    if (a>0)
+		    	System.out.printf("\n\t\tThe %d bytes sent \t",a);
+		    System.out.printf("\n\t\tBucket output successful");
+		  }
+		}
+
+	
+	
+	
+	public static void main(String args[])
+	{
+		  int  pktSize;
+		  int size[]=new int[10];
+		  int i;
+		  
+		  Scanner  t;
+		  
+		  t=new Scanner(System.in);
+		  System.out.println("Enter the output rate.....");
+		  int op=t.nextInt();
+		  
+		  		  
+		  t=new Scanner(System.in);
+		  System.out.println("Enter the number of packets.....");
+		  int n=t.nextInt();
+		  
+		  t=new Scanner(System.in);
+		  System.out.println("Enter the size of each packets....");
+		  for(i=1;i<=n;i++)
+		  {
+			
+			size[i]=t.nextInt();
+		  }
+		  
+		  t=new Scanner(System.in);
+		  for(i=1;i<=n;i++){
+		    System.out.printf("\nPacket no  %d",i);
+		    bktInput(size[i],op);
+		  }
+
+	}
+	
+	
+}
